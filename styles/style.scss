@@ -1,0 +1,27 @@
+@import '_general.scss';
+@import '_header.scss';
+@import '_home.scss';
+@import '_variables.scss';
+@import '_particles.scss';
+@import '_animations.scss';
+
+.title{
+    .title-wrapper{
+        animation-duration: 900ms;
+        animation-delay: .7s;
+    }
+}
+
+.text{
+    &.animate{
+        animation-duration: 900ms;
+        animation-delay: .7s;
+    }
+}
+
+section{
+    &:nth-child(2){
+        background-color: #f5f6f3;
+        z-index: 2;
+    }
+}

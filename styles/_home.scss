@@ -1,0 +1,234 @@
+@import '_variables.scss';
+
+#section-home{
+    .content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        will-change: transform;
+        box-sizing: border-box;
+
+        .title{
+            color: $white-grey;
+            white-space: nowrap;
+            margin-bottom: 8px;
+        }
+
+        .text{
+            color: rgba($color: $white-grey, $alpha: 0.64);
+            margin-bottom: 48px;
+        }
+
+        .actions{
+            opacity: 0;
+            animation-duration: 900ms;
+            animation-delay: 0.85s;
+            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            animation-fill-mode: forwards;
+            animation-name: slideInUp;
+        }
+    }
+
+    .social-media{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 160px;
+
+        .social-media-links{
+            margin-bottom: 24px;
+        }
+    }
+}
+
+#info{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 75%;
+    height: 200px;
+    will-change: opacity;
+    display: none;
+
+    .projects-preview{
+        position: absolute;
+        right: 100%;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+
+        .swiper-container{
+            width: 200px;
+            height: 200px;
+            background-color: $white-grey;
+            margin: 0;
+            visibility: hidden;
+
+            animation-duration: 900ms;
+            animation-delay: 0.3s;
+            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            animation-fill-mode: forwards;
+
+            .swiper-slide{
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                padding: 20%;
+
+                img{
+                    object-fit: contain;
+                    width: 100%;
+                    height: 100%;
+                    animation-duration: 900ms;
+                    animation-delay: 0.3s;
+                    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                    animation-fill-mode: forwards;
+                }
+            }
+        }
+
+        &.play{
+            .swiper-container{
+                animation-name: slideInRight;
+
+                img{
+                    animation-name: slideInLeft;
+                }
+            }
+        }
+    }
+
+    .info-row{
+        display: flex;
+        background-color: rgba(62, 35, 67, 0.6);
+        animation-duration: 300ms;
+        animation-delay: 0.3s;
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-fill-mode: forwards;
+        visibility: hidden;
+        
+        &.play{
+            animation-name: fadeIn;
+        }
+
+        .info-col{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: calc(100% / 3);
+            box-sizing: border-box;
+            padding-left: 48px;
+
+            .subtitle{
+                color: $white-grey;
+                margin-bottom: 24px;
+            }
+
+            .text{
+                color: rgba($color: $white-grey, $alpha: 0.42);
+            }
+        }
+    }
+}
+
+#face{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    will-change: transform;
+}
+
+@include for-phone-only{
+    #section-home{
+        height: 110vh;
+
+        .content{
+            position: fixed;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 32px;
+        }
+    }
+
+    #face{
+        display: none;
+    }
+
+    #social-media{
+        display: none;
+    }
+}
+
+@include for-phone-landscape-only{
+    #section-home{
+        .content{
+            position: relative;
+            top: 24px;
+            left: 96px;
+            width: calc(100% - 192px);
+            height: auto;
+            box-sizing: border-box;
+            padding: 24px;
+
+            .text {
+                width: 100%;
+            }
+        }
+    }
+
+    #face{
+        right: 0 !important;
+    }
+
+    #social-media{
+        display: none;
+    }
+}
+
+@include for-tablet-portrait-up{
+    #section-home{
+        height: 110vh;
+
+        .content{
+            position: absolute;
+            left: 25%;
+            height: 100vh;
+
+            .text{
+                width: 50vw;
+            }
+        }
+    }
+
+    #face{
+        right: -5vh;
+    }
+}
+
+@include for-tablet-landscape-up{
+    #face{
+        right: 0;
+    }
+}
+
+@include for-desktop-up{
+    #section-home{
+        height: 150vh;
+
+        .content{
+            padding-bottom: 15vh;
+
+            .text{
+                width: 25vw;
+            }
+        }
+    }
+
+    #info{
+        display: flex;
+    }
+}
