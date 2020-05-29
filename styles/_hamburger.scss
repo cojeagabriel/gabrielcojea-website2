@@ -1,0 +1,153 @@
+@import '_variables.scss';
+
+.hamburger{
+    position: absolute;
+    z-index: 7;
+    width: 32px;
+    height: 32px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.hamburger-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+
+.hamburger-line{
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: $white-grey;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    
+    &:last-of-type{
+        align-self: flex-end;
+    }
+}
+
+
+
+.hamburger--dark{
+    .hamburger-line{
+        background-color: $dark-blue;
+    }
+}
+
+.hamburger.is-active{
+    position: fixed;
+    
+    .hamburger-line{
+        &:first-of-type{
+            transform: translate(0, 6px) rotate(135deg);
+        }
+        
+        &:last-of-type{
+            transform: translate(0, -6px) rotate(45deg);
+        }
+    }
+}
+
+
+
+@include for-phone-only{
+
+    .hamburger{
+        width: 28px;
+        height: 28px;
+        top: 10px;
+        right: 8px;
+    }
+
+    .hamburger.is-active{
+        .hamburger-line{
+            &:first-of-type{
+                transform: translate(0, 5px) rotate(135deg);
+            }
+            
+            &:last-of-type{
+                transform: translate(0, -5px) rotate(45deg);
+            }
+        }
+    }
+
+}
+
+@include for-phone-landscape-only{
+
+    .hamburger{
+        width: 28px;
+        height: 28px;
+        top: 10px !important;
+        right: 8px !important;
+    }
+
+    .hamburger.is-active{
+        .hamburger-line{
+            &:first-of-type{
+                transform: translate(0, 5px) rotate(135deg);
+            }
+            
+            &:last-of-type{
+                transform: translate(0, -5px) rotate(45deg);
+            }
+        }
+    }
+}
+
+@include for-tablet-portrait-up{
+
+    .hamburger{
+        top: 40px;
+        right: 40px;
+    }
+
+    .hamburger-line{
+        background-color: $dark-blue;
+    }
+
+    .collapse-menu{
+        .hamburger{
+            &:not(.hamburger--dark){
+                .hamburger-line{
+                    background-color: $white-grey;
+                }
+            }
+        }
+    }
+
+}
+
+@include for-tablet-landscape-up{
+
+    .hamburger{
+        opacity: 0;
+        visibility: hidden;
+        animation-duration: 0.6s;
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-fill-mode: both;
+    }
+
+    .hamburger-line{
+        background-color: $white-grey;
+    }
+
+    .collapse-menu{
+        .hamburger{
+            animation-delay: 0.3s;
+            animation-name: fadeIn, slideInLeftShort;
+        }
+    }
+
+    .expand-menu{
+        .hamburger{
+            animation-name: slideOutLeftShort, fadeOut;
+        }
+    }
+
+}

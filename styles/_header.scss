@@ -1,10 +1,5 @@
 @import '_variables.scss';
 
-$hand-translate-x: 1.2vh;
-$hands-transition-duration: 1.2s;
-$hands-transition-easing: cubic-bezier(0.5, 1, 0.89, 1);
-
-
 .header{
     position: fixed;
     top: 0;
@@ -39,10 +34,6 @@ $hands-transition-easing: cubic-bezier(0.5, 1, 0.89, 1);
                 background-size: cover;
             }
         }
-
-        .navbar-link{
-            color: rgba($white-grey, 0.64);
-        }
     }
 
     &:not(.header-dark){
@@ -52,27 +43,6 @@ $hands-transition-easing: cubic-bezier(0.5, 1, 0.89, 1);
 
         .logo{
             z-index: 2;
-        }
-    }
-}
-
-.logo{
-    position: relative;
-    display: block;
-    width: 96px;
-    height: 96px;
-    padding: 24px;
-
-    picture{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-
-        img{
-            height: 100%;
-            width: auto;
         }
     }
 }
@@ -87,547 +57,53 @@ $hands-transition-easing: cubic-bezier(0.5, 1, 0.89, 1);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-.navbar{
-    position: relative;
-    margin-left: auto;
-    margin-right: 25vw;
 
-    &.animate{
-        .navbar-item{
-            opacity: 0;
-            animation-duration: 1200ms;
-            animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-            animation-fill-mode: forwards;
-            animation-name: slideInDown, fadeIn;
-
-            @for $i from 0 through 3 {
-                &:nth-child(#{4 - $i}) {
-                    animation-delay: 0.05s * $i;
-                }
-            }
-        }
-    }
-}
-
-.navbar-nav{
-    display: flex;
-}
-
-.navbar-link{
-    display: inline-flex;
-    align-items: center;
-    height: 48px;
-    font-size: 0.86rem;
-    letter-spacing: 0.056rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 0 32px;
-
-    &.active{
-        color: $neon-blue-light !important;
-    }
-}
-
-#sidenav{
-    position: fixed;
-    z-index: 6;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 0;
-    background-color: $white-grey;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    overflow: hidden;
-
-    &.open{
-        width: 100%;
-
-        .hand-of-god,
-        .hand-of-adam{
-            transform: translate3d(0, 0, 0);
-
-            .background{
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        .sidenav-nav-container{
-            &:before{
-                left: 0;
-                opacity: 1;
-            }
-        }
-
-        .sidenav-item{
-            @for $i from 0 through 3 {
-                &:nth-child(#{1 + $i}){
-                    .sidenav-link{
-                        .text-container{
-                            .intro-animation-container{
-                                transition-delay: 0.05s * $i + 0.3s;
-                            }
-                        }
-                    
-                        &:before{
-                            opacity: 1;
-                            transform: translate3d(0, 0, 0);
-                            transition-delay: 0.05s * $i + 0.3s;
-                        }
-                    }
-                }
-            }
-        }
-
-        .sidenav-link{
-            .text-container{
-                .intro-animation-container{
-                    transform: translate3d(0, 0, 0);
-                }
-            }
-        }
-    }
-
-    &.closing{
-        .hand-of-god,
-        .hand-of-adam{
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .hand-of-god{
-            transform: translate3d(0, $hand-translate-x, 0);
-
-            .background{
-                transform: translate3d(0, -$hand-translate-x, 0);
-            }
-        }
-
-        .hand-of-adam{
-            transform: translate3d(0, -$hand-translate-x, 0);
-    
-            .background{
-                transform: translate3d(0, $hand-translate-x, 0);
-            }
-        }
-    }
-}
-
-.sidenav-container{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-
-    .logo{
-        position: absolute;
-        top: 0;
-        left: 16px;
-    }
-
-    .social-media{
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 160px;
-
-        .social-media-links{
-            margin-bottom: 24px;
-        }
-    }
-}
-
-.sidenav-nav-container{
-    position: relative;
-    width: 33vw;
-    height: 100vh;
-    margin-left: auto;
-
-    &:before{
-        content: '';
-        position: absolute;
-        opacity: 0;
-        left: 48px;
-        top: 0;
-        width: 1px;
-        height: 100vh;
-        background-color: rgba($dark-blue, 0.16);
-        transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-}
-
-.sidenav-nav{
-    position: absolute;
-    top: 50%;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    transform: translate3d(0, -50%, 0);
-}
-
-.sidenav-item{
-    display: flex;
-
-    @for $i from 0 through 3 {
-        &:nth-child(#{1 + $i}){
-            .sidenav-link{
-                &:before {
-                    content: '0#{1 + $i}';
-                }
-            }
-        }
-    }
-}
-
-.sidenav-link{
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    box-sizing: border-box;
-    padding-right: 7.5vw;
-    color: $dark-blue;
-    transition: opacity 0.6s $easeOutQuart;
-
-    &:before{
-        position: absolute;
-        right: 100%;
-        top: 50%;
-        font-family: $font-primary;
-        font-size: 0.8rem;
-        padding-right: 0.8rem;
-        opacity: 0.64;
-        transform: translate(0, 24px);
-        opacity: 0;
-        transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-
-    .text-container{
-        position: relative;
-        flex-grow: 1;
-        text-align: right;
-        overflow: hidden;
-
-        span{
-            display: inline-block;
-            height: 4.9rem;
-            font-size: 3rem;
-            line-height: 4.9rem;
-            font-family: $font-secondary;
-        }
-
-        .intro-animation-container{
-            transform: translate3d(100%, 0, 0);
-            transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-
-        .hover-animation-container{
-            width: 12rem;
-            transition: transform 0.6s $easeOutQuart;
-        }
-
-        &:after{
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 100%;
-            width: 30px;
-            height: 30px;
-            border: solid 4px $dark-blue;
-            transform-origin: 50% 50%;
-            transform: translate3d(48px, -50%, 0) rotate(45deg);
-            transition: all 0.6s $easeOutQuart;
-        }
-    }
-}
-
-.clip{
-    position: absolute;
-    will-change: transform;
-    overflow: hidden;
-
-    &.hand-of-adam{
-        top: 0;
-        left: calc(22vw + 17.5vh);
-        width: 50vh;
-        height: 50vh;
-        clip-path: url(#hand-of-adam);
-        transform: translate3d(0, -$hand-translate-x, 0);
-        
-        .background{
-            left: calc(-22vw - 17.5vh);
-            transform: translate3d(0, $hand-translate-x, 0);
-        }
-    }
-
-    &.hand-of-god{
-        top: 52.8vh;
-        left: calc(22vw + 9vh);
-        bottom: 0;
-        width: 50vh;
-        height: 50vh;
-        clip-path: url(#hand-of-god);
-        transform: translate3d(0, $hand-translate-x, 0);
-
-        .background{
-            top: -52.75vh;
-            left: calc(-22vw - 9vh);
-            transform: translate3d(0, -$hand-translate-x, 0);
-        }
-    }
-
-    transition: transform $hands-transition-duration $hands-transition-easing;
-    
-    .background{
-        transition: inherit;
-        position: absolute;
-        min-width: 100vw;
-        min-height: 100vh;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        background-image: url('../assets/images/background.jpg');
-        will-change: transform;
-    }
-}
-
-
-
-$hamburgerWidth: 32px;
-
-.hamburger{
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    z-index: 7;
-    width: $hamburgerWidth;
-    height: $hamburgerWidth;
-    padding: 16px;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    animation-duration: 0.6s;
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    animation-fill-mode: forwards;
-}
-
-.hamburger--dark{
-    .hamburger-line{
-        background-color: $dark-blue;
-    }
-}
-
-.hamburger-container{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 100%;
-  height: 100%;
-}
-
-.hamburger-line{
-  position: relative;
-  width: 100%;
-  height: 2px;
-  background-color: $white-grey;
-  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-  overflow: hidden;
-  
-  &:last-of-type{
-    width: 100%;
-    align-self: flex-end;
-  }
-  
-  &:before,
-  &:after{
-    position: absolute;
-    top: 0;
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-color: inherit;
-    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-  }
-  
-  &:after{
-    left: calc(100% + 8px);
-  }
-  
-  &:before{
-    right: 0;
-  }
-  
-  @for $i from 0 through 20 {
-    &:nth-child(#{$i + 1}) {
-      &:before,
-      &:after{
-        transition-delay: 0.05s * $i;
-      }
-    }
-  }
-}
-
-
-.hamburger.is-active{
-    position: fixed;
-  .hamburger-line{
-    &:first-of-type{
-      transform: translate(0, $hamburgerWidth * 0.166) rotate(135deg);
-    }
-    
-    &:last-of-type{
-      width: 100%;
-      transform: translate(0, -$hamburgerWidth * 0.166) rotate(45deg);
-    }
-  }
-}
-
-.collapse-menu{
-    .hamburger{
-        animation-delay: 0.3s;
-        animation-name: fadeIn, slideInLeftShort;
-    }
-
-    .navbar{
-        .navbar-item{
-            opacity: 1;
-            visibility: visible;
-            animation-duration: 0.3s;
-            animation-delay: 0;
-            animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-            animation-name: slideOutRightShort, fadeOut;
-
-            @for $i from 0 through 3 {
-                &:nth-child(#{4 - $i}) {
-                    animation-delay: 0.05s * $i;
-                }
-            }
-        }
-    }
-}
-
-.expand-menu{
-    .hamburger{
-        animation-name: slideOutLeftShort, fadeOut;
-    }
-
-    .navbar{
-        .navbar-item{
-            animation-duration: 0.6s;
-            @for $i from 0 through 3 {
-                &:nth-child(#{4 - $i}) {
-                    animation-delay: 0.025s * $i;
-                }
-            }
-        }
-    }
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .navbar-link{
-        &:hover{
-            .rolling-text{
-                .letter{
-                    transform: translateY(-100%);
-                }
-            }
-        }
-    }
-
-    .rolling-text{
-        .block:last-child{
-            color: $white-grey;
-        }
-    }
-
-    .sidenav-link{
-        &:hover{
-            &:before{
-                opacity: 1;
-            }
-
-            .text-container{
-                .hover-animation-container{
-                    transform: translate3d(-32px, 0, 0);
-                }
-
-                &:after{
-                    transform: translate3d(-8px, -1.5rem, 0) rotate(45deg);
-                }
-            }
-        }
-    }
-
-    .sidenav-nav{
-        &:hover{
-            .sidenav-item{
-                .sidenav-link{
-                    &:not(:hover){
-                        opacity: 0.32;
-                    }
-                }
-            }
-        }
-    }
-
-    .hamburger:hover{
-        .hamburger-line{
-        &:before{
-            right: calc(100% + 8px);
-        }
-        
-        &:after{
-            left: 0;
-        }
-        }
-    }
-}
-
-@include for-phone-only{
-
-    .header{
-        padding: 0;
-    }
-
-    .logo{
-        width: 40px;
-        height: 40px;
-        padding: 16px;
-        transition: height 300ms ease;
-    }
-
-    .navbar{
-        display: none;
-    }
-
-    .hamburger{
-        opacity: 1;
-        visibility: visible;
-        width: 24px;
-        height: 24px;
-        top: 12px;
-        right: 8px;
-    }
-}
-
-@include for-phone-landscape-only{
-    .header{
-        padding: 0;
-    }
-
-    .logo{
-        width: 64px;
-        height: 64px;
-        padding: 16px;
-        transition: height 300ms ease;
-    }
-}
 
 @include for-tablet-portrait-up{
+
     .header{
         .background{
             display: none;
+        }
+    }
+
+}
+
+@include for-tablet-landscape-up{
+
+    .navbar{
+        display: initial;
+    }
+
+    .collapse-menu{
+        .navbar{
+            .navbar-item{
+                opacity: 1;
+                visibility: visible;
+                animation-duration: 0.3s;
+                animation-delay: 0;
+                animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+                animation-name: slideOutRightShort, fadeOut;
+
+                @for $i from 0 through 3 {
+                    &:nth-child(#{4 - $i}) {
+                        animation-delay: 0.05s * $i;
+                    }
+                }
+            }
+        }
+    }
+
+    .expand-menu{
+        .navbar{
+            .navbar-item{
+                animation-duration: 0.6s;
+                @for $i from 0 through 3 {
+                    &:nth-child(#{4 - $i}) {
+                        animation-delay: 0.025s * $i;
+                    }
+                }
+            }
         }
     }
 }

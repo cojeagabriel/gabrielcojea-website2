@@ -24,6 +24,7 @@
         <a href="#" class="logo">
             <picture>
                 <source media="(max-width: 599px)" srcset="assets/images/logo-simple-white.svg">
+                <source media="(max-width: 900px) and (orientation: landscape)" srcset="assets/images/logo-simple-white.svg">
                 <img src="assets/images/logo-white.svg" alt="Gabriel Cojea's logo">
             </picture>
         </a>
@@ -61,13 +62,17 @@
         </div>
     </header>
 
-    <nav id="sidenav" class="sidenav">
+    <div id="sidenav" class="sidenav">
         <div class="sidenav-container">
             <a href="#" class="logo">
-                <img src="assets/images/logo.svg" alt="Logo">
+                <picture>
+                    <source media="(max-width: 599px)" srcset="assets/images/logo-simple.svg">
+                    <source media="(max-width: 900px) and (orientation: landscape)" srcset="assets/images/logo-simple.svg">
+                    <img src="assets/images/logo.svg" alt="Gabriel Cojea's logo">
+                </picture>
             </a>
 
-            <div class="social-media social-media--dark social-media--vertical">
+            <nav class="social-media social-media--dark social-media--vertical">
                 <span class="social-media-text">Follow me on social media</span>
     
                 <ul class="social-media-links">
@@ -87,7 +92,7 @@
                         </a>
                     </li>                    
                 </ul>
-            </div>
+            </nav>
 
             <div class="clip hand-of-adam">
                 <div class="background"></div>
@@ -96,7 +101,7 @@
                 <div class="background"></div>
             </div>
 
-            <div class="sidenav-nav-container">
+            <nav class="sidenav-nav-container">
                 <ul class="sidenav-nav">
                     <li class="sidenav-item">
                         <a class="sidenav-link" href="#">
@@ -135,7 +140,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </nav>
 
             
             <a class="button button-dark resume-button" href="#">
@@ -149,11 +154,10 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
 
     <main role="main">
         <section id="section-home">
-            <!-- <div id="particles-js"></div> -->
             <div class="content">
                 <h1 class="title play rellax" data-rellax-speed="-9.5" data-rellax-xs-speed="0" data-rellax-mobile-speed="0">
                     <span class="title-wrapper">Front-End <br> Developer</span>
@@ -238,7 +242,11 @@
                 <div class="header">
                     <div class="background"></div>
                     <a href="#" class="logo">
-                        <img src="assets/images/logo.svg" alt="Logo">
+                        <picture>
+                            <source media="(max-width: 599px)" srcset="assets/images/logo-simple.svg">
+                            <source media="(max-width: 900px) and (orientation: landscape)" srcset="assets/images/logo-simple.svg">
+                            <img src="assets/images/logo.svg" alt="Gabriel Cojea's logo">
+                        </picture>
                     </a>
 
                     <div class="hamburger hamburger--dark">

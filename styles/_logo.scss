@@ -1,0 +1,46 @@
+@import '_variables.scss';
+
+.logo{
+    position: relative;
+    display: block;
+    width: 96px;
+    height: 96px;
+    padding: 24px;
+
+    picture{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        img{
+            height: 100%;
+            width: auto;
+        }
+    }
+}
+
+
+
+@include for-phone-only{
+
+    .logo{
+        width: 40px;
+        height: 40px;
+        padding: 16px;
+        transition: height 300ms ease;
+    }
+
+}
+
+@include for-phone-landscape-only{
+
+    .logo{
+        width: 40px;
+        height: 40px;
+        padding: 16px;
+        transition: height 300ms ease;
+    }
+
+}

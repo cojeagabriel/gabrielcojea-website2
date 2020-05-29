@@ -28,3 +28,7 @@ $dark-blue: #1d213f;
 $easeInOutQuart: cubic-bezier(0.76, 0, 0.24, 1);
 $easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
 $easeInOutSine: cubic-bezier(0.37, 0, 0.63, 1);
+
+$hand-translate-x: 1.2vh;
+$hands-transition-duration: 1.2s;
+$hands-transition-easing: cubic-bezier(0.5, 1, 0.89, 1);
