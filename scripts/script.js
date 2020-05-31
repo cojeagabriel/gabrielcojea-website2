@@ -2,6 +2,8 @@ let viewHeight = window.innerHeight;
 let viewWidth = window.innerWidth;
 let breakpoints = [480, 600, 1200];
 
+
+
 function delay(n) {
     n = n || 2000;
     return new Promise((resolve) => {
@@ -46,18 +48,13 @@ barba.init({
     }]
 });
 
+
+
 var rellax = new Rellax('.rellax', {
     breakpoints: [480, 600, 1200]
 });
 
-$(document).ready(function () {
-    var mySwiper = new Swiper('.swiper-container', {
-        loop: true,
-        autoplay: {
-            delay: 5000,
-        },
-    })
-});
+
 
 window.onload = function () {
 
