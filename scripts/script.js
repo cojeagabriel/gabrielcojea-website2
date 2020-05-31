@@ -1,3 +1,7 @@
+let viewHeight = window.innerHeight;
+let viewWidth = window.innerWidth;
+let breakpoints = [480, 600, 1200];
+
 function delay(n) {
     n = n || 2000;
     return new Promise((resolve) => {
@@ -15,7 +19,7 @@ function loadImage() {
             console.log('finished loading image');
             resolve(image);
         });
-        image.src = '../assets/images/background.jpeg';
+        image.src = '../assets/images/background-optimised.jpeg';
     });
 }
 
@@ -67,11 +71,6 @@ window.onload = function () {
     });
     elements.forEach(element => observer.observe(element))
 
-
-
-    let viewHeight = 0;
-    let viewWidth = 0;
-    let breakpoints = [480, 600, 1200];
     let scrollTop = 0;
     let ticking = false;
     let collapsed = false;
