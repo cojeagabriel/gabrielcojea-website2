@@ -1,4 +1,73 @@
+function delay(n) {
+    n = n || 2000;
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log('finished delay');
+            resolve();
+        }, n);
+    });
+}
+
+function loadImage() {
+    return new Promise(resolve => {
+        const image = new Image();
+        image.addEventListener('load', () => {
+            console.log('finished loading image');
+            resolve(image);
+        });
+        image.src = '../assets/images/background.webp';
+    });
+}
+
+function ready() {
+    document.body.classList.remove('loading');
+    document.body.classList.add('loaded');
+    setTimeout(() => {
+        document.body.classList.add('play');
+    }, 600);
+}
+
+barba.init({
+    views: [{
+        namespace: 'home',
+
+        async beforeEnter() {
+            const resolve = this.async();
+            document.body.classList.add('loading');
+            Promise.all([delay(1000), loadImage()]).then((result) => {
+                ready();
+                resolve();
+            });
+        }
+    }]
+});
+
+var rellax = new Rellax('.rellax', {
+    breakpoints: [480, 600, 1200]
+});
+
+$(document).ready(function () {
+    var mySwiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+    })
+});
+
 window.onload = function () {
+
+    const elements = document.querySelectorAll('.observe');
+    const observer = new IntersectionObserver(elements => {
+        elements.forEach(element => {
+            if (element.intersectionRatio > 0) {
+                element.target.classList.add('in-view');
+            }
+        });
+    });
+    elements.forEach(element => observer.observe(element))
+
+
 
     let viewHeight = 0;
     let viewWidth = 0;

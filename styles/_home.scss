@@ -26,7 +26,7 @@
             animation-delay: 0.85s;
             animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
             animation-fill-mode: forwards;
-            animation-name: slideInUp;
+            // animation-name: slideInUp;
         }
     }
 
@@ -88,15 +88,15 @@
             }
         }
 
-        &.play{
-            .swiper-container{
-                animation-name: slideInRight;
+        // &.play{
+        //     .swiper-container{
+        //         animation-name: slideInRight;
 
-                img{
-                    animation-name: slideInLeft;
-                }
-            }
-        }
+        //         img{
+        //             animation-name: slideInLeft;
+        //         }
+        //     }
+        // }
     }
 
     .info-row{
@@ -108,9 +108,9 @@
         animation-fill-mode: forwards;
         visibility: hidden;
         
-        &.play{
-            animation-name: fadeIn;
-        }
+        // &.play{
+        //     animation-name: fadeIn;
+        // }
 
         .info-col{
             display: flex;

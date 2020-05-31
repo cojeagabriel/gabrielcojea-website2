@@ -6,6 +6,8 @@ $neon-blue-light: #18ebf0;
 $white-grey:  #f6f7f2;
 $dark-blue: #1d213f;
 
+$border-white: rgba($white-grey, 0.32);
+
 @mixin for-phone-only {
   @media screen and (max-width: 599px) { @content; }
 }
@@ -27,7 +29,9 @@ $dark-blue: #1d213f;
 
 $easeInOutQuart: cubic-bezier(0.76, 0, 0.24, 1);
 $easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
+$easeInOutExpo: cubic-bezier(0.87, 0, 0.13, 1);
 $easeInOutSine: cubic-bezier(0.37, 0, 0.63, 1);
+$easeOutSine: cubic-bezier(0.61, 1, 0.88, 1);
 
 $hand-translate-x: 1.2vh;
 $hands-transition-duration: 1.2s;

@@ -21,6 +21,7 @@
     text-transform: uppercase;
     padding: 0 32px;
     color: rgba($white-grey, 0.64);
+    transition: all 0.6s $easeOutQuart;
 
     &.active{
         color: $neon-blue-light !important;
@@ -34,7 +35,7 @@
         animation-duration: 1200ms;
         animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
         animation-fill-mode: forwards;
-        animation-name: slideInDown, fadeIn;
+        // animation-name: slideInDown, fadeIn;
 
         @for $i from 0 through 3 {
             &:nth-child(#{4 - $i}) {
@@ -42,6 +43,18 @@
             }
         }
     }
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .navbar-link:hover {
+        transform: translate3d(0, -4px, 0);
+
+        &:not(.active){
+            color: $white-grey;
+        }
+    }
+
 }
 
 
@@ -60,7 +73,7 @@
                 animation-duration: 0.3s;
                 animation-delay: 0;
                 animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-                animation-name: slideOutRightShort, fadeOut;
+                animation-name: slideOutRightShort, fadeOut !important;
 
                 @for $i from 0 through 3 {
                     &:nth-child(#{4 - $i}) {
