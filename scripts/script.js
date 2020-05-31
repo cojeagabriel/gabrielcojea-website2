@@ -21,7 +21,13 @@ function loadImage() {
             console.log('finished loading image');
             resolve(image);
         });
-        image.src = '../assets/images/background-optimised.jpeg';
+        console.log(viewWidth);
+        if (viewWidth >= breakpoints[0]) {
+            image.src = '../assets/images/background-mobile.jpeg';
+        } else {
+            image.src = '../assets/images/background-mobile.jpeg';
+        }
+        
     });
 }
 

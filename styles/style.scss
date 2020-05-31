@@ -99,6 +99,17 @@ section{
         animation-name: scaleDown;
     }
 
+    .header{
+        &.header-dark{
+            .background {
+
+                &::before{
+                    animation-name: scaleDown;
+                }
+            }
+        }
+    }
+
     .title{
         .title-wrapper{
             animation-name: slideInLeft;

@@ -32,6 +32,10 @@ body{
         animation-fill-mode: both;
         // animation-name: scaleDown;
     }
+
+    &:not(.loaded){
+        overflow: hidden;
+    }
 }
 
 main {
