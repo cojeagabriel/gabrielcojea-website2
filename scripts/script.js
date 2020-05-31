@@ -15,7 +15,7 @@ function loadImage() {
             console.log('finished loading image');
             resolve(image);
         });
-        image.src = '../assets/images/background.webp';
+        image.src = '../assets/images/background.jpeg';
     });
 }
 
